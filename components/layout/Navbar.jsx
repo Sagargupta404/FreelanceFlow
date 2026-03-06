@@ -15,7 +15,7 @@ export default function Navbar() {
       className="border-b"
       style={{ borderColor: "var(--border)" }}
     >
-      <div className="flex justify-between items-center pl-50 pr-4 sm:px-15 lg:px-20 py-3">
+      <div className="flex justify-between items-center pl-30 pr-4 sm:px-15 lg:px-20 py-3">
         {/* Logo */}
         <div className="font-bold text-lg sm:text-xl lg:text-2xl">
           FreelanceFlow
