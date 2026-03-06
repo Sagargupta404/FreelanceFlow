@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo,useCallback } from "react";
 import { useData } from "@/context/DataContext";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
@@ -25,11 +25,11 @@ export default function ExpensesPage() {
 
   /* ================= FETCH ================= */
 
-  const fetchExpenses = async () => {
-    const res = await fetch("/api/expenses");
-    const data = await res.json();
-    setExpenses(Array.isArray(data) ? data : []);
-  };
+const fetchExpenses = useCallback(async () => {
+  const res = await fetch("/api/expenses");
+  const data = await res.json();
+  setExpenses(Array.isArray(data) ? data : []);
+}, []);
 
   useEffect(() => {
     fetchExpenses();
@@ -60,7 +60,7 @@ export default function ExpensesPage() {
   const categoryData = useMemo(() => {
     const grouped = {};
     expenses.forEach((e) => {
-      grouped[e.category] = (grouped[e.category] || 0) + e.amount;
+     grouped[e.category] = (grouped[e.category] || 0) + Number(e.amount || 0);
     });
 
     return Object.keys(grouped).map((key) => ({
