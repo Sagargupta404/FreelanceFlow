@@ -39,7 +39,7 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <span className="opacity-80 text-xl">
+              <span className="opacity-80 text-sm">
                 Welcome, <b>{user.name}</b>
               </span>
 
@@ -71,7 +71,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col gap-4 px-4 pb-4">
+        <div className="md:hidden flex flex-col gap-4 px-15 pb-4">
 
           {!user ? (
             <>
@@ -90,19 +90,18 @@ export default function Navbar() {
             <>
               <span className="opacity-80">
                 Welcome, <b>{user.name}</b>
-              </span>
-
-              <Link href="/dashboard" className="hover:opacity-70">
-                Dashboard
-              </Link>
-
-              <button
+                 <button
                 onClick={logout}
-                className="px-4 py-2 border rounded-xl w-fit"
+                className="px-4 mx-8 py-2 border rounded-xl w-fit"
                 style={{ borderColor: "var(--border)" }}
               >
                 Logout
               </button>
+              </span>
+
+            
+
+             
             </>
           )}
 

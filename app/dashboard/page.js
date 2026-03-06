@@ -31,7 +31,7 @@ const { invoices, fetchInvoices } = useData();
     if (user) {
       fetchInvoices();
     }
-  }, [user]);
+  }, [user],[fetchInvoices]);
 
   /* ================= LOADING STATE ================= */
 
