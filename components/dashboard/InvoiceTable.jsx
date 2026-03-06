@@ -85,7 +85,7 @@ const [editForm, setEditForm] = useState({});
 
   return (
     <div
-      className="p-8 rounded-2xl space-y-6 shadow-md"
+      className="p-4 sm:p-6 lg:p-8 rounded-2xl space-y-6 shadow-md"
       style={{
         backgroundColor: "var(--card)",
         border: "1px solid var(--border)",
@@ -94,7 +94,7 @@ const [editForm, setEditForm] = useState({});
       <h2 className="text-xl font-semibold">Invoices</h2>
 
       {/* Controls */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <input
           placeholder="Search client..."
           value={search}
@@ -139,7 +139,7 @@ const [editForm, setEditForm] = useState({});
       {/* Invoice Cards */}
      {/* Invoice Cards */}
 <div
-  className="space-y-4 max-h-[450px] overflow-y-auto pr-2"
+  className="space-y-4 max-h-[350px] sm:max-h-[450px] overflow-y-auto pr-2"
   style={{
     scrollbarWidth: "thin"
   }}
@@ -157,7 +157,7 @@ const [editForm, setEditForm] = useState({});
         }}
       >
         {/* ================= HEADER ================= */}
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
 
           {/* LEFT */}
           <div
@@ -186,7 +186,7 @@ const [editForm, setEditForm] = useState({});
           </div>
 
           {/* RIGHT */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
 
             {/* STATUS BADGE */}
             <span
@@ -240,7 +240,7 @@ const [editForm, setEditForm] = useState({});
 
         {/* ================= EXPANDED SECTION ================= */}
         {openId === inv._id && (
-          <div className="mt-5 grid grid-cols-2 gap-4 text-sm border-t pt-4">
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm border-t pt-4">
 
             {/* TOTAL */}
             <div>

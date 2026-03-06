@@ -16,10 +16,10 @@ export default function SettingsPage() {
   ];
 
   return (
-    <div className="flex gap-10">
+   <div className="flex flex-col lg:flex-row gap-10 lg:gap-10 p-4 sm:p-6 lg:p-8">
 
       {/* LEFT PANEL */}
-      <div className="w-60 border-r pr-6 space-y-11">
+      <div className="lg:w-60 border-b lg:border-b-0 lg:border-r pb-4 lg:pb-0 lg:pr-6 flex lg:block overflow-x-auto gap-4 lg:space-y-3">
         {tabs.map(tab => (
           <button
             key={tab.id}
@@ -36,7 +36,7 @@ export default function SettingsPage() {
       </div>
 
       {/* RIGHT PANEL */}
-      <div className="flex-1 max-w-3xl space-y-8">
+     <div className="flex-1 w-full max-w-3xl space-y-12">
 
         {activeTab === "business" && <BusinessSettings />}
         {activeTab === "financial" && <FinancialSettings />}
@@ -95,11 +95,11 @@ function BudgetSettings() {
 function InvoiceSettings() {
   return (
     <Section title="Invoice Automation">
-      <div className="flex justify-between items-center">
+     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
         <span>Auto Mark Paid When Remaining = 0</span>
         <input type="checkbox"/>
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
         <span>Send Invoice Email Notification</span>
         <input type="checkbox"/>
       </div>
@@ -111,7 +111,7 @@ function InvoiceSettings() {
 function SystemSettings() {
   return (
     <Section title="System Preferences">
-      <div className="flex gap-7">
+    <div className="flex flex-wrap gap-4">
         <button className="btn">Light Mode</button>
         <button className="btn">Dark Mode</button>
       </div>
@@ -121,7 +121,7 @@ function SystemSettings() {
 
 function DangerZone() {
   return (
-    <div className="p-15 border border-red-500 rounded-xl space-y-9">
+    <div className="p-6 sm:p-8 border border-red-500 rounded-xl space-y-6">
       <h2 className="text-red-500 font-semibold text-lg">
         Danger Zone
       </h2>
@@ -137,7 +137,7 @@ function DangerZone() {
 
 function Section({ title, children }) {
   return (
-    <div className="p-6 border rounded-xl space-y-6">
+   <div className="p-4 sm:p-6 border rounded-xl space-y-6">
       <h2 className="text-xl font-semibold">{title}</h2>
       <div className="space-y-4">{children}</div>
     </div>

@@ -120,7 +120,7 @@ const fetchExpenses = useCallback(async () => {
   };
 
   return (
-    <div className="space-y-10">
+   <div className="p-4 sm:p-6 lg:p-8 space-y-8">
 
       {/* ================= ALERT ================= */}
       {isLoss && (
@@ -136,7 +136,7 @@ const fetchExpenses = useCallback(async () => {
       )}
 
       {/* ================= METRICS ================= */}
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Metric title="Total Expense" value={`₹ ${totalExpense}`} />
         <Metric title="Revenue" value={`₹ ${revenue}`} />
         <Metric title="Net Profit" value={`₹ ${netProfit}`} />
@@ -153,7 +153,7 @@ const fetchExpenses = useCallback(async () => {
 
       {/* ================= FORM ================= */}
       {formOpen && (
-        <div className="grid md:grid-cols-3 gap-4 p-6 border rounded-xl">
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 sm:p-6 border rounded-xl">
           <input placeholder="Title"
             value={form.title}
             onChange={(e)=>setForm({...form,title:e.target.value})}
@@ -195,7 +195,7 @@ const fetchExpenses = useCallback(async () => {
 
           <button
             onClick={handleSave}
-            className="col-span-3 bg-green-600 text-white p-2 rounded-xl"
+            className="sm:col-span-2 lg:col-span-3 bg-green-600 text-white p-2 rounded-xl"
           >
             Save
           </button>
@@ -206,7 +206,7 @@ const fetchExpenses = useCallback(async () => {
       <div className="space-y-4">
         {expenses.map((e) => (
           <div key={e._id}
-            className="flex justify-between items-center p-4 border rounded-xl">
+           className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 p-4 border rounded-xl">
 
             <div>
               <div className="font-semibold">{e.title}</div>
@@ -215,7 +215,7 @@ const fetchExpenses = useCallback(async () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
 
               <span
                 className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -253,7 +253,7 @@ const fetchExpenses = useCallback(async () => {
       </div>
 
       {/* ================= PIE ================= */}
-      <div style={{ width:"100%", height:300 }}>
+     <div className="w-full h-[250px] sm:h-[300px] lg:h-[350px]">
         <ResponsiveContainer>
           <PieChart>
             <Pie data={categoryData} dataKey="value" outerRadius={100}>
@@ -272,7 +272,7 @@ const fetchExpenses = useCallback(async () => {
 
 function Metric({title,value}) {
   return (
-    <div className="p-4 border rounded-xl">
+   <div className="p-4 border rounded-xl text-center sm:text-left">
       <p className="text-sm opacity-60">{title}</p>
       <h2 className="text-xl font-bold">{value}</h2>
     </div>

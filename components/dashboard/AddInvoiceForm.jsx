@@ -54,7 +54,7 @@ export default function AddInvoiceForm({ onSuccess }) {
       {/* Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="px-3 py-2 rounded-xl font-medium transition"
+        className="w-full sm:w-auto px-4 py-2 rounded-xl font-medium transition"
         style={{
           backgroundColor: "var(--primary)",
           color: "white",
@@ -66,18 +66,18 @@ export default function AddInvoiceForm({ onSuccess }) {
       {/* Expandable Form */}
       <div
         className={`transition-all duration-300 overflow-hidden ${
-          open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[900px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         {open && (
-          <form
-            onSubmit={handleSubmit}
-            className="mt-4 p-6 rounded-xl grid grid-cols-2 gap-2"
-            style={{
-              backgroundColor: "var(--card)",
-              border: "1px solid var(--border)",
-            }}
-          >
+         <form
+  onSubmit={handleSubmit}
+  className="mt-4 p-4 sm:p-6 rounded-xl grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
+  style={{
+    backgroundColor: "var(--card)",
+    border: "1px solid var(--border)",
+  }}
+>
             <input
               placeholder="Client Name"
               value={form.client}
@@ -134,13 +134,13 @@ export default function AddInvoiceForm({ onSuccess }) {
               onChange={(e) =>
                 setForm({ ...form, notes: e.target.value })
               }
-              className="p-2 border rounded"
+              className="w-full p-2.5 border rounded text-sm sm:text-base"
             />
 
-            <div className="col-span-2">
+            <div className="sm:col-span-2">
               <button
                 type="submit"
-                className="px-6 py-2 rounded-lg"
+                  className="w-full sm:w-auto px-6 py-2.5 rounded-lg text-sm sm:text-base"
                 style={{
                   backgroundColor: "var(--primary)",
                   color: "white",

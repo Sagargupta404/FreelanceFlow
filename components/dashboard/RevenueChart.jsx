@@ -56,18 +56,18 @@ export default function RevenueChart() {
 
   return (
     <div
-      className="p-6 rounded-xl space-y-6"
+     className="p-4 sm:p-6 rounded-xl space-y-2"
       style={{
         backgroundColor: "var(--card)",
         border: "1px solid var(--border)",
       }}
     >
-      <div  className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+        <h2 className="text-lg sm:text-xl font-semibold">
           Revenue Overview
         </h2>
 
-       <div className="flex gap-2">
+       <div className="flex flex-wrap gap-2">
 
   {["bar", "line", "pie"].map((chart) => (
     <button
@@ -88,7 +88,7 @@ export default function RevenueChart() {
 
     
 
-      <div style={{ width: "100%", height: 150 }}>
+      <div className="w-full h-[50px] sm:h-[120px] lg:h-[200px]">
         <ResponsiveContainer>
           {type === "bar" && (
             <BarChart data={monthlyData}>

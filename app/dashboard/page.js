@@ -31,7 +31,7 @@ const { invoices, fetchInvoices } = useData();
     if (user) {
       fetchInvoices();
     }
-  }, [user, fetchInvoices]);
+  }, [user]);
 
   /* ================= LOADING STATE ================= */
 
@@ -61,39 +61,42 @@ const { invoices, fetchInvoices } = useData();
   );
 
   return (
-    <div className="space-y-8">
-{/* ================= TOP SECTION ================= */}
+   <div className="p-2 sm:p-6 lg:p-8 space-y-4">
 
+    {/* ================= MAIN GRID ================= */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
 
-
-    <div className="grid grid-cols-2 gap-4">
-
-  {/* ================= LEFT COLUMN ================= */}
-  <div className="space-y-4">
-
+      {/* ================= LEFT COLUMN ================= */}
+      <div className="space-y-3">
+ 
         {/* Financial Cards */}
-       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
           <Card title="Total Contract Value" value={`₹ ${totalContractValue}`} />
           <Card title="Total Earned" value={`₹ ${totalEarned}`} />
           <Card title="Pending Revenue" value={`₹ ${totalPending}`} />
         </div>
 
         {/* Revenue Chart */}
-        <RevenueChart />
+         <div className="w-full h-[250px] sm:h-[300px]">
+          <RevenueChart />
+        </div>
           {/* Add Invoice Form */}
     <AddInvoiceForm onSuccess={fetchInvoices} />
 
       </div>
   {/* ================= RIGHT COLUMN ================= */}
-  <div className="space-y-1">
+  <div className="space-y-2">
 
   
 
     {/* Invoice Table + Filters */}
-    <InvoiceTable
-      invoices={invoices}
-      onRefresh={fetchInvoices}
-    />
+            <div className="overflow-x-auto">
+          <InvoiceTable
+            invoices={invoices}
+            onRefresh={fetchInvoices}
+          />
+        </div>
+
 
   </div>
 
