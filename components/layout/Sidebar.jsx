@@ -63,7 +63,7 @@ export default function Sidebar() {
           <button
             onClick={() => setOpen(false)}
             className="lg:hidden mb-6 text-sm px-3 py-1 border rounded"
-            style={{ borderColor: "var(--border)" }}
+            style={{ borderColor: "var(--border)", color: "var(--text)" }}
           >
             Close
           </button>
@@ -71,17 +71,25 @@ export default function Sidebar() {
           {/* MENU */}
           <nav className="flex flex-col gap-2 mb-10">
             {menu.map(item => {
-              const active = pathname === item.href;
+              const active =
+                item.href === "/dashboard"
+                  ? pathname === "/dashboard"
+                  : pathname.startsWith(item.href);
 
               return (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="px-4 py-3 rounded-lg text-sm font-medium transition"
+                  className="px-4 py-3 rounded-lg text-sm font-medium transition-all flex items-center"
                   style={{
-                    backgroundColor: active ? "black" : "gray-100",
-                    color: active ? "#fff" : "inherit",
+                    backgroundColor: active
+                      ? "var(--accent)"
+                      : "var(--card-soft)",
+                    color: active ? "#fff" : "var(--text)",
+                    borderLeft: active
+                      ? "4px solid var(--accent)"
+                      : "4px solid transparent",
                   }}
                 >
                   {item.name}

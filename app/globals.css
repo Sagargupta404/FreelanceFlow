@@ -45,3 +45,19 @@ button.primary {
 .danger-btn {
   @apply px-4 py-4 bg-red-400 text-white rounded-lg;
 }
+
+:root {
+  --card: #ffffff;
+  --card-soft: #f3f4f6;
+  --border: #e5e7eb;
+  --text: #111827;
+  --accent: #2563eb;
+}
+
+.dark {
+  --card: #111827;
+  --card-soft: #1f2937;
+  --border: #374151;
+  --text: #f3f4f6;
+  --accent: #3b82f6;
+}
